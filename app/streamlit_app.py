@@ -9,6 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 categories_path = BASE_DIR / 'data' / 'merchant_categories.json'
 merchant_groups_path = BASE_DIR / 'data' / 'merchant_group.json'
 
+
+
 with open(categories_path, 'r') as f:
     merchant_categories = json.load(f)
 
@@ -20,10 +22,10 @@ st.title("Credit Risk Prediction")
 
 t1, t2 = st.columns((0.05,1)) 
 
-t1.image('image.png', width = 220)
+t1.image(str(BASE_DIR / 'app' / 'image.png'), width=220)
 st.divider()
 
-logo = 'image.png'
+logo = str(BASE_DIR / 'app' / 'image.png')
 st.logo(logo, size="medium", link=None, icon_image=None)
 
 a1,a2,a3 = st.columns((1.,0.1,1))
@@ -85,4 +87,5 @@ if a1.button("Predict", type="primary", use_container_width=True):
     #st.write(f"Probability of Default (PD): {result['pd']}")
     st.success(f"PD: {result['pd']}")
     #st.info(f"Score: {result['score']}")
+    st.warning(f"Default status: {result['default_status']}")
     st.warning(f"Risk band: {result['risk_band']}")

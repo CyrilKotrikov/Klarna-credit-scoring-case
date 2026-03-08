@@ -35,10 +35,17 @@ def predict_credit_risk(input: dict) -> dict:
     pred_class = int(pd_1 >= threshold)
     #score = round((1 - pd_1) * 1000, 2)
 
+    if pred_class == 1:
+        default_status = "default"
+    else:
+        default_status = "non-default"
+
     if pd_1 < 0.1:
         risk_band = "low"
     elif pd_1 < 0.3:
         risk_band = "medium"
+    elif pd_1 < threshold:
+        risk_band = "medium-high"
     else:
         risk_band = "high"
 
@@ -48,5 +55,6 @@ def predict_credit_risk(input: dict) -> dict:
         "risk_band": risk_band,
         "prediction": pred_class,
         "threshold": threshold,
+        "default_status": default_status
     }
 
