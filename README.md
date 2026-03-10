@@ -40,7 +40,12 @@ Scope for improvement
 - I started implementing a FastAPI endpoint (in addition to Streamlit), but did not complete the implementation due to time limitations.
 
 Files description:
-
+- data
+Contains the datasets used in the project, including both the original raw data and the cleaned or preprocessed versions used for model training and evaluation.
+- app
+Contains the Streamlit application used to interact with the trained model. This app provides a simple interface where users can input loan information and receive a credit risk prediction from the model.
+- data_preprocessing_and_tests
+Contains Jupyter notebooks with detailed annotations covering data exploration, feature engineering, preprocessing steps, and model experiments. These notebooks document the analytical process and testing performed during model development.
 
 
 
